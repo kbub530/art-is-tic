@@ -1,2 +1,2 @@
-# Squirrel
-Temporary description
+# ART/IS/TIC
+coming soon
