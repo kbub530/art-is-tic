@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Art Is Tic — Photography</title>
+  <meta name="description" content="Art Is Tic — a minimalist, fast photo gallery hand-built and hosted on GitHub Pages.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="shell hero">
+    <h1>Art Is Tic</h1>
+    <p class="tag">photography • texture • gesture</p>
+    <nav>
+      <a href="#gallery">Gallery</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="shell">
+    <section id="intro" class="intro">
+      <p>This gallery is a simple, static site you fully control. Replace the samples below with your own images in the <code>photos/</code> folder, then edit captions and alt text. No subscriptions, no lock‑in.</p>
+    </section>
+
+    <section id="gallery" class="gallery" aria-label="Photo gallery">
+      <figure>
+        <a href="photos/sample-1.jpg" data-lightbox>
+          <img src="photos/sample-1.jpg" alt="Sample texture study" loading="lazy" width="800" height="533">
+        </a>
+        <figcaption>Texture study — replace with your caption.</figcaption>
+      </figure>
+      <figure>
+        <a href="photos/sample-2.jpg" data-lightbox>
+          <img src="photos/sample-2.jpg" alt="Sample urban detail" loading="lazy" width="800" height="533">
+        </a>
+        <figcaption>Urban detail — replace with your caption.</figcaption>
+      </figure>
+      <figure>
+        <a href="photos/sample-3.jpg" data-lightbox>
+          <img src="photos/sample-3.jpg" alt="Sample light and shadow" loading="lazy" width="800" height="533">
+        </a>
+        <figcaption>Light & shadow — replace with your caption.</figcaption>
+      </figure>
+    </section>
+
+    <section id="about" class="about">
+      <h2>About</h2>
+      <p>Write a short artist statement here. Keep it 2–4 sentences. You can add links to socials.</p>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+    </section>
+  </main>
+
+  <footer class="shell">
+    <small>&copy; 2025 • Art Is Tic</small>
+  </footer>
+
+  <div id="lightbox" hidden>
+    <button id="lightbox-close" aria-label="Close">×</button>
+    <img id="lightbox-img" alt="Expanded photo">
+    <figcaption id="lightbox-cap"></figcaption>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
