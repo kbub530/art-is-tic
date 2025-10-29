@@ -1,1 +1,8 @@
+{
+  "photos": [
+    { "file": "walls_01.jpg", "alt": "Column against textured wall", "caption": "Do you see a column?" },
+    { "file": "walls_02.jpg", "alt": "Color patchwork on wall", "caption": "Do you see color?" },
+    { "file": "walls_03.jpg", "alt": "Vent fan on patterned wall", "caption": "Do you see a fan?" }
+  ]
+}
 
