@@ -11,15 +11,15 @@
     
     { "file": "walls_01.jpg",
   "alt": "Hopefully visible column",
-  "caption": "do you see a column?" }
+  "caption": "do you see a column?" },
 
     { "file": "walls_02.jpg",
   "alt": "hopefully color visible",
-  "caption": "Do you see color??" }
+  "caption": "Do you see color??" },
 
 { "file": "walls_03.jpg",
   "alt": "hopefully fan visible",
-  "caption": "do you see a fan???" }
+  "caption": "do you see a fan???" },
 
   ]
 }
