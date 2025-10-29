@@ -10,16 +10,16 @@
     { "file": "sample-3.jpg", "caption": "Light & shadow — replace with your caption." }
     
     { "file": "walls_01.jpg",
-  "alt": "Rust-toned metal staircase with diagonal shadows",
-  "caption": "Rust Stair — <em>Atlanta, 2024</em>" }
+  "alt": "Hopefully visible column",
+  "caption": "do you see a column?" }
 
     { "file": "walls_02.jpg",
-  "alt": "Rust-toned metal staircase with diagonal shadows",
-  "caption": "Rust Stair — <em>Atlanta, 2024</em>" }
+  "alt": "hopefully color visible",
+  "caption": "Do you see color??" }
 
 { "file": "walls_03.jpg",
-  "alt": "Rust-toned metal staircase with diagonal shadows",
-  "caption": "Rust Stair — <em>Atlanta, 2024</em>" }
+  "alt": "hopefully fan visible",
+  "caption": "do you see a fan???" }
 
   ]
 }
