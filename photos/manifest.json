@@ -9,15 +9,15 @@
     { "file": "sample-2.jpg", "caption": "Urban detail — replace with your caption." },
     { "file": "sample-3.jpg", "caption": "Light & shadow — replace with your caption." }
     
-    { "file": "rust-stair-01.jpg",
+    { "file": "walls_01.jpg",
   "alt": "Rust-toned metal staircase with diagonal shadows",
   "caption": "Rust Stair — <em>Atlanta, 2024</em>" }
 
-    { "file": "rust-stair-01.jpg",
+    { "file": "walls_02.jpg",
   "alt": "Rust-toned metal staircase with diagonal shadows",
   "caption": "Rust Stair — <em>Atlanta, 2024</em>" }
 
-{ "file": "rust-stair-01.jpg",
+{ "file": "walls_03.jpg",
   "alt": "Rust-toned metal staircase with diagonal shadows",
   "caption": "Rust Stair — <em>Atlanta, 2024</em>" }
 
