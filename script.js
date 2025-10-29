@@ -1,21 +1,25 @@
-// Build the gallery from photos/manifest.json (no HTML editing needed).
+// Build the gallery from whatever manifest the page asks for.
 (function () {
   const GALLERY = document.getElementById("gallery");
 
+  // Get manifest path from data-manifest or default to /photos/manifest.json
+  const manifestPath =
+    (GALLERY && GALLERY.dataset.manifest) || "/photos/manifest.json";
+
+  // Derive a base folder from the manifest path so "file" can be just a filename
+  const base = manifestPath.replace(/[^/]+$/, ""); // e.g., "/photos/good-walls/"
+
   function titleCase(s) {
-    return s.replace(/[-_]+/g, " ")
-            .replace(/\b\w/g, c => c.toUpperCase());
+    return s.replace(/[-_]+/g, " ").replace(/\b\w/g, c => c.toUpperCase());
   }
 
   function makeFigure(item) {
-    // item: { file, alt?, caption? }
     const file = item.file;
-    const src  = `photos/${file}`;
+    const src  = `${base}${file}`;
     const alt  = item.alt || titleCase(file.replace(/\.[^.]+$/, ""));
     const cap  = item.caption || titleCase(file.replace(/\.[^.]+$/, ""));
 
     const fig = document.createElement("figure");
-
     const a = document.createElement("a");
     a.href = src;
     a.setAttribute("data-lightbox", "");
@@ -38,34 +42,22 @@
 
   async function build() {
     try {
-      const res = await fetch("photos/manifest.json", { cache: "no-store" });
+      const res = await fetch(manifestPath, { cache: "no-store" });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
-      // Allow either {photos:[...]} or [...] JSON formats
       const list = Array.isArray(data) ? data : (data.photos || []);
       GALLERY.innerHTML = "";
       list.forEach(item => GALLERY.appendChild(makeFigure(item)));
-      hookLightbox(); // enable the pop-up viewer
+      hookLightbox();
     } catch (e) {
       console.error("Failed to build gallery:", e);
       GALLERY.insertAdjacentHTML("beforeend",
-        `<p style="color:#a2a2b0">Couldn’t load photo list. Check photos/manifest.json.</p>`);
+        `<p style="color:#a2a2b0">Couldn’t load photo list: ${manifestPath}</p>`);
     }
   }
 
-  // Tiny lightbox
   function hookLightbox() {
     let lb = document.getElementById("lightbox");
-    if (!lb) {
-      lb = document.createElement("div");
-      lb.id = "lightbox";
-      lb.hidden = true;
-      lb.innerHTML = `
-        <button id="lightbox-close" aria-label="Close">×</button>
-        <img id="lightbox-img" alt="Expanded photo">
-        <figcaption id="lightbox-cap"></figcaption>`;
-      document.body.appendChild(lb);
-    }
     const img = document.getElementById("lightbox-img");
     const cap = document.getElementById("lightbox-cap");
     const closeBtn = document.getElementById("lightbox-close");
