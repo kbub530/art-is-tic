@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Good Walls — Art Is Tic</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="shell hero">
+    <h1>Good Walls</h1>
+    <nav><a href="/">Home</a> · <a href="/portraits/">Portraits</a></nav>
+  </header>
+
+  <main class="shell">
+    <section id="gallery" class="gallery" aria-label="Good Walls" data-manifest="/photos/good-walls/manifest.json"></section>
+  </main>
+
+  <div id="lightbox" hidden>
+    <button id="lightbox-close" aria-label="Close">×</button>
+    <img id="lightbox-img" alt="Expanded photo">
+    <figcaption id="lightbox-cap"></figcaption>
+  </div>
+
+  <script src="/script.js"></script>
+</body>
+</html>
