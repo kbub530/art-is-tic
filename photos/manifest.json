@@ -1,0 +1,12 @@
+{
+  "photos": [
+    {
+      "file": "blueTwig2.jpg",
+      "alt": "Close-up of a blue-colored twig, emphasizing texture and contrast",
+      "caption": "Blue Twig — <em>location/year</em>"
+    },
+    { "file": "sample-1.jpg", "caption": "Texture study — replace with your caption." },
+    { "file": "sample-2.jpg", "caption": "Urban detail — replace with your caption." },
+    { "file": "sample-3.jpg", "caption": "Light & shadow — replace with your caption." }
+  ]
+}
