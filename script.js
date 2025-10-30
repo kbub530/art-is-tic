@@ -2,12 +2,12 @@
 (function () {
   const GALLERY = document.getElementById("gallery");
 
-  // Get manifest path from data-manifest or default to /photos/manifest.json
+  // Get manifest path from data-manifest or default to /manifest.json
   const manifestPath =
-    (GALLERY && GALLERY.dataset.manifest) || "/photos/manifest.json";
+    (GALLERY && GALLERY.dataset.manifest) || "/manifest.json";
 
   // Derive a base folder from the manifest path so "file" can be just a filename
-  const base = manifestPath.replace(/[^/]+$/, ""); // e.g., "/photos/good-walls/"
+  const base = manifestPath.replace(/[^/]+$/, ""); // e.g., "/good-walls/"
 
   function titleCase(s) {
     return s.replace(/[-_]+/g, " ").replace(/\b\w/g, c => c.toUpperCase());
