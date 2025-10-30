@@ -1,8 +1,117 @@
 {
   "photos": [
-    {"file": "bioluminescence/blueTwig2.jpg", "alt": "Close your eyes and feel the silly", "caption": "Blue Twig — <em>wow, a thing!<em>"},
-    {"file": "good-walls/walls_01.jpg", "alt": "Hopefully visible column", "caption": "do you see a column?"},
-    {"file": "good-walls/walls_02.jpg", "alt": "hopefully color visible", "caption": "Do you see color??"},
-    {"file": "good-walls/walls_03.jpg", "alt": "hopefully fan visible", "caption": "do you see a fan???"}
+    
+    
+    {
+      "file": "abstract/abstract_01.jpg",
+      "category": "abstract",
+      "alt": "ab",
+      "caption": "ab1"
+    },
+
+    
+    {
+      "file": "abstract/abstract_02.jpg",
+      "category": "abstract",
+      "alt": "ab",
+      "caption": "ab2"
+    },
+    {
+      "file": "abstract/abstract_03.jpg",
+      "category": "abstract",
+      "alt": "ab",
+      "caption": "ab3"
+    },
+    {
+      "file": "abstract/abstract_04.jpg",
+      "category": "abstract",
+      "alt": "ab",
+      "caption": "ab4"
+    },
+
+
+  
+    {
+      "file": "bioluminescence/plant_01.jpg",
+      "category": "bioluminescence",
+      "alt": "one",
+      "caption": "<em>1<em>"
+    },
+    {
+      "file": "bioluminescence/plant_02.jpg",
+      "category": "bioluminescence",
+      "alt": "two",
+      "caption": "<em>2<em>"
+    },
+    {
+      "file": "bioluminescence/plant_03.jpg",
+      "category": "bioluminescence",
+      "alt": "three",
+      "caption": "<em>3<em>"
+    },
+    {
+      "file": "bioluminescence/plant_04.jpg",
+      "category": "bioluminescence",
+      "alt": "four",
+      "caption": "<em>4<em>"
+    },
+    {
+      "file": "bioluminescence/plant_05.jpg",
+      "category": "bioluminescence",
+      "alt": "five",
+      "caption": "<em>5<em>"
+    },
+    {
+      "file": "bioluminescence/plant_06.jpg",
+      "category": "bioluminescence",
+      "alt": "six",
+      "caption": "<em>6<em>"
+    },
+    {
+      "file": "bioluminescence/plant_07.jpg",
+      "category": "bioluminescence",
+      "alt": "seven",
+      "caption": "<em>7<em>"
+    },
+    {
+      "file": "water_01",
+      "category": "bioluminescence",
+      "alt": "water1",
+      "caption": "<em>W1<em>"
+    },
+    {
+      "file": "water_02",
+      "category": "bioluminescence",
+      "alt": "water2",
+      "caption": "<em>W2<em>"
+    },
+
+    
+    {
+      "file": "good-walls/walls_01.jpg",
+      "category": "good-walls",
+      "alt": "Column against textured wall",
+      "caption": "Do you see a column?"
+    },
+    {
+      "file": "good-walls/walls_02.jpg",
+      "category": "good-walls",
+      "alt": "Patchwork of color on a wall",
+      "caption": "Do you see color?"
+    },
+    {
+      "file": "good-walls/walls_03.jpg",
+      "category": "good-walls",
+      "alt": "Vent fan on patterned wall",
+      "caption": "Do you see a fan?"
+    },
+    
+    {
+      "file": "portraits/dog_01.jpg",
+      "category": "portraits",
+      "alt": "dog",
+      "caption": "dog1"
+    }
+
   ]
 }
