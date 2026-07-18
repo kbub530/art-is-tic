@@ -1,0 +1,60 @@
+# ART IS TIC — the automatic publisher.
+#
+# GitHub runs this file every time anything in the repository changes:
+# it runs build.py (which resizes photos and writes the photo list),
+# then publishes the result to GitHub Pages.
+#
+# You never run or edit this file. It just works in the background.
+
+name: Build and publish the site
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the repository files
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install the image library
+        run: python -m pip install --quiet pillow
+
+      - name: Build the site (resize photos, write the photo list)
+        run: python build.py
+
+      - name: Prepare GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload the finished site
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
