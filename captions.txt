@@ -1,0 +1,16 @@
+# ART IS TIC — photo captions (optional)
+# ────────────────────────────────────────────────────────────
+# One caption per line, like this:
+#
+#   collection/filename.jpg | The caption text
+#
+# Photos without a line here simply have no caption — that's fine.
+# Lines starting with # are ignored.
+#
+# Captions appear when someone hovers over a photo, and under the
+# big version when a photo is clicked open.
+
+good-walls/walls_01.jpg | Do you see a column?
+good-walls/walls_02.jpg | Do you see color?
+good-walls/walls_03.jpg | Do you see a fan?
+portraits/dog_01.jpg | dog1ish

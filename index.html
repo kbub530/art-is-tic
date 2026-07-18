@@ -1,58 +1,62 @@
-<!-- This is a comment -->
-
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Art Is Tic — Photography</title>
-  <meta name="description" content="Art Is Tic — a photo gallery.">
-  <link rel="stylesheet" href="styles.css">
-</head>
 
+  <title>Art Is Tic — Photography</title>
+
+  <!-- EDIT: this description shows up in Google results and link previews. -->
+  <meta name="description" content="Art Is Tic — photography by Sophia Maier. Abstract work, bioluminescence, good walls, and the occasional portrait.">
+
+  <meta name="color-scheme" content="dark">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Spline+Sans+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/styles.css">
+</head>
 <body>
-  <header class="shell hero">
-    <h1>Art Is Tic</h1>
-    <p class="tag">photography • absurdity • apology</p>
-    <nav>
-      <a href="#gallery">Gallery</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <a href="/portraits/">Portraits</a>
-      <a href="/good-walls/">Good Walls</a>
-      <a href="/abstract/">Abstract</a>
-      <a href="/bioluminescence/">Bioluminescence</a>
-  </nav>
+
+  <header class="hero shell">
+    <h1 class="wordmark" aria-label="Art Is Tic"><span>Art</span><span class="tic">Is</span><span class="tic">Tic</span></h1>
+    <p class="tag">photography&ensp;•&ensp;absurdity&ensp;•&ensp;apology</p>
+    <nav class="site-nav" aria-label="Site">
+      <a href="#about">about</a>
+      <a href="#contact">contact</a>
+    </nav>
   </header>
 
   <main class="shell">
-    <section id="intro" class="intro">
-      <p> Words words words </p>
-    </section>
 
-<section id="gallery" class="gallery"></section>
+    <!-- EDIT: your short introduction. Replace the line below with your own words. -->
+    <p class="intro">Words words words</p>
 
-    <section id="about" class="about">
+    <!-- The collection tabs and the photo wall fill themselves in.
+         You never edit these two sections — photos come from the photos/ folder. -->
+    <nav id="tabs" class="tabs" aria-label="Collections"></nav>
+    <section id="gallery" class="gallery"></section>
+
+    <section id="about" class="prose">
       <h2>About</h2>
-      <p> Words about me! one to two sentences. </p>
+      <!-- EDIT: a sentence or two about you. -->
+      <p>Words about me! one to two sentences.</p>
     </section>
 
-    <section id="contact" class="contact">
+    <section id="contact" class="prose">
       <h2>Contact</h2>
+      <!-- EDIT: replace BOTH "you@example.com" bits below with your real email. -->
       <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
     </section>
+
   </main>
 
   <footer class="shell">
-    <small>&copy; 2025 • Art Is Tic</small>
+    <small>© <span id="year">2026</span> Art Is Tic</small>
   </footer>
 
-  <div id="lightbox" hidden>
-    <button id="lightbox-close" aria-label="Close">×</button>
-    <img id="lightbox-img" alt="Expanded photo">
-    <figcaption id="lightbox-cap"></figcaption>
-  </div>
-
-  <script src="script.js"></script>
+  <script src="/script.js"></script>
 </body>
 </html>

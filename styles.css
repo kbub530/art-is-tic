@@ -1,53 +1,301 @@
+/* ART IS TIC — styles
+   ─────────────────────────────────────────────────────────────
+   Want different colors? They all live in the :root block below.
+   Change a hex code, commit, done. Nothing else needs touching. */
 
-:root {
-  --bg: #0e0e10;
-  --fg: #e9e9f0;
-  --muted: #a2a2b0;
-  --accent: #9fd0ff;
-  --shell: min(1200px, 96vw);
+:root{
+  --night: #0c1210;   /* page background — green-black, forest at night   */
+  --deep:  #131b18;   /* image placeholders and raised surfaces           */
+  --paper: #ece8df;   /* main text — warm off-white, like a print         */
+  --fog:   #94a09b;   /* quieter text                                     */
+  --glow:  #9fe6cc;   /* accent — soft bioluminescence, used sparingly    */
+  --line:  rgba(236, 232, 223, .12);
+  --row:   15rem;     /* target height of a gallery row on big screens    */
 }
-* { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
-a { color: var(--accent); text-decoration: none; }
-.shell { width: var(--shell); margin: 0 auto; padding: 1.2rem; }
-.hero { padding-top: 2rem; padding-bottom: .5rem; border-bottom: 1px solid #1f1f26; }
-h1 { margin: 0; font-size: clamp(1.8rem, 3.5vw, 3rem); letter-spacing: 0.02em; }
-.tag { color: var(--muted); margin: .25rem 0 0.5rem; }
-nav { display: flex; gap: 1rem; flex-wrap: wrap; }
 
-.intro { color: var(--muted); }
+*, *::before, *::after{ box-sizing: border-box; }
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 12px;
-  margin: 1rem 0 2rem;
+html{ scroll-behavior: smooth; }
+
+body{
+  margin: 0;
+  background: var(--night);
+  background-image: radial-gradient(60rem 30rem at 50% -12rem, rgba(159, 230, 204, .07), transparent 70%);
+  color: var(--paper);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
 }
-figure { margin: 0; }
-figure a { display: block; border-radius: 12px; overflow: hidden; border: 1px solid #222230; }
-img { display: block; width: 100%; height: auto; object-fit: cover; }
-figcaption { font-size: .9rem; color: var(--muted); padding: .4rem .2rem .8rem; }
 
-.about, .contact { margin: 2rem 0; }
-footer { border-top: 1px solid #1f1f26; color: var(--muted); }
+::selection{ background: var(--glow); color: var(--night); }
 
-/* Lightbox */
-#lightbox[hidden] { display: none; }
-#lightbox {
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,.92);
-  display: grid; place-items: center;
-  padding: 2rem;
-  z-index: 9999;
+.shell{
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 2.5rem);
 }
-#lightbox img {
-  max-width: min(96vw, 1400px);
-  max-height: 80vh;
-  border-radius: 10px;
+
+/* ── hero ─────────────────────────────────────────────────── */
+
+.hero{
+  padding-block: clamp(3.5rem, 10vw, 6.5rem) clamp(1.6rem, 4vw, 2.6rem);
+  text-align: center;
 }
-#lightbox-cap { margin-top: .8rem; color: var(--muted); text-align: center; }
-#lightbox-close {
-  position: absolute; top: .8rem; right: 1rem;
-  font-size: 2rem; background: transparent; border: none; color: var(--fg);
+
+.wordmark{
+  margin: 0;
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(2.7rem, 8vw, 4.8rem);
+  line-height: 1.05;
+  letter-spacing: .01em;
+}
+
+/* The name arrives as one word — “ArtIsTic” — then the tic
+   breaks it apart. The site’s whole joke, told in half a second. */
+.wordmark .tic{
+  display: inline-block;
+  margin-left: .3em;
+  animation: tic .9s cubic-bezier(.2, .9, .3, 1.25) .5s backwards;
+}
+.wordmark .tic:last-child{ animation-delay: .62s; }
+
+@keyframes tic{ from{ margin-left: 0; } }
+
+.tag{
+  margin: 1rem 0 0;
+  font-family: "Spline Sans Mono", ui-monospace, monospace;
+  font-weight: 300;
+  font-size: .82rem;
+  letter-spacing: .18em;
+  color: var(--fog);
+}
+
+.site-nav{
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 2.4rem;
+  font-family: "Spline Sans Mono", ui-monospace, monospace;
+  font-size: .8rem;
+  letter-spacing: .12em;
+}
+.site-nav a{
+  color: var(--fog);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+}
+.site-nav a:hover{ color: var(--paper); border-color: var(--line); }
+
+/* ── intro line ───────────────────────────────────────────── */
+
+.intro{
+  max-width: 38rem;
+  margin: 0 auto 2.4rem;
+  text-align: center;
+  color: var(--fog);
+  font-size: 1.05rem;
+}
+
+/* ── collection tabs ──────────────────────────────────────── */
+
+.tabs{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .5rem 1.7rem;
+  margin: 0 0 1.7rem;
+  font-family: "Spline Sans Mono", ui-monospace, monospace;
+}
+
+.tab{
+  background: none;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  padding: .35rem 0;
   cursor: pointer;
+  font: inherit;
+  font-size: .82rem;
+  letter-spacing: .14em;
+  text-transform: lowercase;
+  color: var(--fog);
+}
+.tab:hover{ color: var(--paper); }
+.tab[aria-pressed="true"]{ color: var(--glow); border-bottom-color: var(--glow); }
+
+/* ── the photo wall ───────────────────────────────────────────
+   Each photo carries --r (width ÷ height), set by script.js.
+   Rows then justify themselves: every image in a row shares one
+   height, and the row runs edge to edge. No cropping, no code. */
+
+.gallery{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 12rem;
+}
+.gallery::after{ content: ""; flex-grow: 1000000; }
+
+.shot{
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  background: var(--deep);
+  aspect-ratio: var(--r, 1.5);
+  flex-grow: calc(var(--r, 1.5) * 100);
+  flex-basis: calc(var(--r, 1.5) * var(--row));
+}
+
+.shot a{ display: block; width: 100%; height: 100%; }
+
+.shot img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0;
+  transition: opacity .6s ease, transform .4s ease;
+}
+.shot.loaded img{ opacity: 1; }
+.shot:hover img{ transform: scale(1.015); }
+
+.shot figcaption{
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  padding: 2.4rem .8rem .65rem;
+  font-family: "Spline Sans Mono", ui-monospace, monospace;
+  font-size: .75rem;
+  letter-spacing: .06em;
+  color: var(--paper);
+  background: linear-gradient(transparent, rgba(7, 10, 9, .8));
+  opacity: 0;
+  transition: opacity .25s;
+  pointer-events: none;
+}
+.shot:hover figcaption,
+.shot:focus-within figcaption{ opacity: 1; }
+
+.gallery-note{
+  width: 100%;
+  margin: 2.5rem auto;
+  text-align: center;
+  color: var(--fog);
+  font-family: "Spline Sans Mono", ui-monospace, monospace;
+  font-size: .85rem;
+}
+
+/* ── about / contact ──────────────────────────────────────── */
+
+.prose{
+  max-width: 40rem;
+  margin: 4.5rem auto 0;
+}
+.prose h2{
+  margin: 0 0 .7rem;
+  padding-top: 2.4rem;
+  border-top: 1px solid var(--line);
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+.prose p{ margin: 0; }
+.prose a{
+  color: var(--glow);
+  text-decoration-color: rgba(159, 230, 204, .4);
+  text-underline-offset: 3px;
+}
+
+/* ── footer ───────────────────────────────────────────────── */
+
+footer{
+  margin-top: 5rem;
+  padding-block: 2rem;
+  text-align: center;
+}
+footer small{
+  font-family: "Spline Sans Mono", ui-monospace, monospace;
+  font-size: .72rem;
+  letter-spacing: .14em;
+  color: var(--fog);
+}
+
+/* ── lightbox ─────────────────────────────────────────────── */
+
+#lightbox{
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(6, 9, 8, .95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#lightbox[hidden]{ display: none; }
+
+#lightbox figure{
+  margin: 0;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .7rem;
+  pointer-events: none;
+}
+
+#lb-img{
+  max-width: min(94vw, 120rem);
+  max-height: 84vh;
+  object-fit: contain;
+  background: var(--deep);
+  pointer-events: auto;
+}
+
+#lightbox figcaption{
+  display: flex;
+  gap: 1.4rem;
+  align-items: baseline;
+  pointer-events: auto;
+  font-family: "Spline Sans Mono", ui-monospace, monospace;
+  font-size: .78rem;
+  letter-spacing: .08em;
+  color: var(--fog);
+}
+#lb-cap{ color: var(--paper); }
+
+.lb-btn{
+  position: fixed;
+  z-index: 51;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: .6rem .9rem;
+  color: var(--paper);
+  opacity: .65;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 2rem;
+  line-height: 1;
+}
+.lb-btn:hover{ opacity: 1; }
+.lb-close{ top: .5rem; right: .7rem; font-size: 2.1rem; }
+.lb-prev{ left: .3rem; top: 50%; transform: translateY(-50%); }
+.lb-next{ right: .3rem; top: 50%; transform: translateY(-50%); }
+
+.no-scroll{ overflow: hidden; }
+
+/* ── focus, small screens, reduced motion ─────────────────── */
+
+:focus-visible{ outline: 2px solid var(--glow); outline-offset: 3px; }
+.tab:focus-visible{ outline-offset: 1px; }
+
+@media (max-width: 40rem){
+  :root{ --row: 9.5rem; }
+  .gallery{ gap: 6px; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  *, *::before, *::after{ animation: none !important; transition: none !important; }
 }
